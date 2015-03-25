@@ -1,7 +1,7 @@
 <?php
 /**
- * @copyright Copyright (c) 2013-2015 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
+ * @copyright Copyright (c) 2013-2015 tejrajs
+ * @link http://tejrajstha.com.np
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 namespace tejrajs\datepicker;
@@ -10,12 +10,11 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
 /**
- * DatePicker renders a DatePicker input.
+ * Nepali DatePicker renders a DatePicker input.
  *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @package dosamigos\datepicker
+ * @author Tej Raj Shrestha <helloteju96@gmail.com>
+ * @link http://tejrajstha.com.np
+ * @package tejrajs\datepicker
  */
 class NepaliDatepicker extends InputWidget
 {
