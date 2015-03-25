@@ -5,6 +5,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 namespace tejrajs\datepicker;
+
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
@@ -16,7 +17,7 @@ use yii\widgets\InputWidget;
  * @link http://www.2amigos.us/
  * @package dosamigos\datepicker
  */
-class DatePicker extends InputWidget
+class NepaliDatepicker extends InputWidget
 {
     /**
      * @var string the addon markup if you wish to display the input as a component. If you don't wish to render as a

@@ -14,7 +14,7 @@ use yii\web\AssetBundle;
  * @link http://www.2amigos.us/
  * @package dosamigos\datepicker
  */
-class DatePickerAsset extends AssetBundle
+class NepaliDatepickerAsset extends AssetBundle
 {
    public $sourcePath = '@vendor/tejrajs/yii2-fontawesome/assets';
    public $css = [	'nepali.datepicker.css'	];
