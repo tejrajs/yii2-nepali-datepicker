@@ -78,23 +78,15 @@ class NepaliDatepicker extends InputWidget
         $js = [];
         $view = $this->getView();
         // @codeCoverageIgnoreStart
-        DatePickerAsset::register($view);
+        NepaliDatepickerAsset::register($view);
         // @codeCoverageIgnoreEnd
         $id = $this->options['id'];
         $selector = ";jQuery('#$id')";
         if ($this->addon || $this->inline) {
             $selector .= ".parent()";
         }
-        $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : '';
-        if ($this->inline) {
-            $this->clientEvents['changeDate'] = "function (e){ jQuery('#$id').val(e.format());}";
-        }
+        $options = '';
         $js[] = "$selector.nepaliDatePicker($options);";
-        if (!empty($this->clientEvents)) {
-            foreach ($this->clientEvents as $event => $handler) {
-                $js[] = "$selector.on('$event', $handler);";
-            }
-        }
         $view->registerJs(implode("\n", $js));
     }
 }
