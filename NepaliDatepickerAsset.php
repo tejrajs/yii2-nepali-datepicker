@@ -15,7 +15,11 @@ use yii\web\AssetBundle;
  */
 class NepaliDatepickerAsset extends AssetBundle
 {
-   public $sourcePath = '@vendor/tejrajs/yii2-fontawesome/assets';
+   public $sourcePath = '@vendor/tejrajs/yii2-nepali-datepicker/assets';
    public $css = [	'nepali.datepicker.css'	];
-   public $css = [	'nepali.datepicker.js'	];
+   public $js = [	'nepali.datepicker.js'	];
+   public $depends = [
+   		'yii\web\YiiAsset',
+   		'yii\bootstrap\BootstrapAsset',
+   ];
 }

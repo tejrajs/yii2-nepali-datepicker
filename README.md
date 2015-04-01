@@ -1,4 +1,4 @@
-# yii2-fullcalendar
+# yii2-nepali-datepicker
 fullcalendar yii2 widget
 
 Installation
@@ -9,13 +9,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist tejrajs/yii2-fullcalendar "dev-master"
+php composer.phar require --prefer-dist tejrajs/yii2-nepali-datepicker "dev-master"
 ```
 
 or add
 
 ```
-"tejrajs/yii2-fullcalendar": "dev-master"
+"tejrajs/yii2-nepali-datepicker": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
@@ -28,19 +28,15 @@ Once the extension is installed, simply use it in your code by  :
 
 ```php 
 <?php
-use tejrajs\fullcalendar\FullCalendar;
+use tejrajs\datepicker\NepaliDatepicker;
 ?>
-<?= FullCalendar::widget([
-	'options'=>['id'=>'calender'],
-	
-    'config' => [
-	    'header' => ['left'=>'prev,next today','center'=> 'title','right'=> 'month,agendaWeek,agendaDay'],
-	    'defaultDate' => date('Y-m-d'),
-	    'editable' =>  true,
-        'lang' => 'en-gb', // optional, if empty get app language
-        // put your options and callbacks here
-        // see http://arshaw.com/fullcalendar/docs/
-        //@eg 'eventSources'=> ['http://localhost/new_crm_branch/crm/marketing/feed'],
-	], 
-]); ?>
+<?= NepaliDatepicker::widget([
+	'name' => 'Test',
+    'value' => '02-16-2012',
+    'template' => '{addon}{input}',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'dd-M-yyyy'
+        ]
+]);?>
 ```
