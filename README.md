@@ -32,11 +32,21 @@ use tejrajs\datepicker\NepaliDatepicker;
 ?>
 <?= NepaliDatepicker::widget([
 	'name' => 'Test',
-    'value' => '02-16-2012',
-    'template' => '{addon}{input}',
+	'value' => '02-16-2012',
+	'template' => '{addon}{input}',
         'clientOptions' => [
             'autoclose' => true,
-            'format' => 'dd-M-yyyy'
+            'onFocus' => false,
         ]
 ]);?>
+OR
+<?= $form->field($model, 'date')->widget(\tejrajs\datepicker\NepaliDatepicker::className(),[
+           		'clientOptions' => [
+					'autoclose' => true,
+              				'onFocus' => false,
+               				'ndpTriggerButton' => true,
+               				'ndpTriggerButtonText' => 'Date',
+              				'ndpTriggerButtonClass' => 'btn btn-primary btn-sm'
+               		]
+]) ?>
 ```

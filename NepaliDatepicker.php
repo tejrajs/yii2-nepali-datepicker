@@ -58,45 +58,37 @@ class NepaliDatepicker extends InputWidget
     /**
      * @inheritdoc
      */
-    public function init()
-    {
-        parent::init();
-        if ($this->inline) {
-            $this->options['readonly'] = 'readonly';
-            Html::addCssClass($this->options, 'text-center');
-        }
-        if ($this->size) {
-            Html::addCssClass($this->options, 'input-' . $this->size);
-            Html::addCssClass($this->containerOptions, 'input-group-' . $this->size);
-        }
-        Html::addCssClass($this->options, $this->clientOptions['class'].' form-control');
-        Html::addCssClass($this->containerOptions, 'input-group date');
-    }
-    /**
-     * @inheritdoc
-     */
-    public function run()
-    {
-        $input = $this->hasModel()
-            ? Html::activeTextInput($this->model, $this->attribute, $this->options)
+	public function init(){
+		if (!isset($this->options['id'])) {
+			$this->options['id'] = $this->hasModel()
+			? Html::getInputId($this->model, $this->attribute)
+			: $this->getId();
+		}
+		if(!isset($this->options['class'])){
+			$this->options['class'] = 'form-control';
+		}
+	}
+	
+	public function run(){
+		echo $this->hasModel()
+            ? Html::activeTextInput(
+                    $this->model,
+                    $this->attribute,
+                    $this->options
+                )
             : Html::textInput($this->name, $this->value, $this->options);
-        echo $input;
-        $this->registerClientScript();
-    }
-    /**
-     * Registers required script for the plugin to work as DatePicker
-     */
-    public function registerClientScript()
-    {
-        $js = [];
-        $view = $this->getView();
-        // @codeCoverageIgnoreStart
-        NepaliDatepickerAsset::register($view);
-        // @codeCoverageIgnoreEnd
-        $class = $this->clientOptions['class'];
-        $selector = "jQuery('.$class')";
-        $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : '';
-        $js[] = "$selector.nepaliDatePicker();";
-        $view->registerJs(implode("\n", $js));
-    }
+		
+		$this->registerClientScript();
+	}
+	
+	public function registerClientScript()
+	{
+		$clientOptions = empty($this->clientOptions)? '': Json::encode($this->clientOptions);
+		
+		$js = 'jQuery("#'.$this->options['id'].'").nepaliDatePicker('.$clientOptions.');';
+		$view = $this->getView();
+		NepaliDatepickerAsset::register($view);
+
+		$view->registerJs($js);
+	}
 }
